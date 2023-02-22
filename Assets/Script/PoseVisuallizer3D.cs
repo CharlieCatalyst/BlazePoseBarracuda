@@ -35,7 +35,7 @@ public class PoseVisuallizer3D : MonoBehaviour
     }
 
     void Update(){
-        mainCamera.transform.RotateAround(Vector3.zero, Vector3.up, 0.1f);
+        //mainCamera.transform.RotateAround(Vector3.zero, Vector3.up, 0.1f);
     }
 
     void LateUpdate(){
