@@ -13,8 +13,12 @@ public class PoseManager : MonoBehaviour
     [Space]
     [SerializeField] bool debug;
     [Space]
+    [Range(0f, 1f)]
+    [SerializeField] float visibilityConfidence = 0.8f;
     [SerializeField] List<PoseZOffset> zOffsets;
+
     Dictionary<PoseName, Pose> poses = new Dictionary<PoseName, Pose>();
+    
 
 
     private void Start()
@@ -55,21 +59,23 @@ public class PoseManager : MonoBehaviour
             if (poseEstimate != null)
             {
                 //if (poseEstimate.point.x > 0 && poseEstimate.point.y > 0)
-                if (poseEstimate.visibilityCoefficient > 0.8f)
+                if (poseEstimate.visibilityCoefficient > visibilityConfidence)
                 {
+                    PoseZOffset zOffset = zOffsets.FirstOrDefault(zo => zo.poseName == poseKV.Key);
                     Vector3 pos = new Vector3(
                        FormatPointWithResolution(poseEstimate.point).x,
                         Camera.main.pixelHeight - FormatPointWithResolution(poseEstimate.point).y
-                       , 4
+                       , zOffset != null ? zOffset.offset : 1
                        );
-                    PoseZOffset zOffset = zOffsets.FirstOrDefault(zo => zo.poseName == poseKV.Key);
+                    
                     poseKV.Value.UpdatePosition(Camera.main.ScreenToWorldPoint(pos));
                     poseEstimate.position = pos;
                 }
 
                 else
                 {
-                    poseKV.Value.UpdatePosition(Vector3.zero);
+                    //poseKV.Value.UpdatePosition(new Vector3(0, 0, 1));
+                    poseKV.Value.SetActive(false);
                     Debug.Log($"pose: {poseKV.Key} is null");
                 }
             }

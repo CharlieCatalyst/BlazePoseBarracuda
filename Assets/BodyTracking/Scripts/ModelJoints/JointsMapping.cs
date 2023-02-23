@@ -38,7 +38,7 @@ public class JointsMapping : MonoBehaviour
         root.parent = poseManager.GetPose(PoseName.neck).transform;
         root.localPosition = new Vector3(0, 0, 0);
 
-        //SetupIKSolvers();
+        SetupIKSolvers();
     }
 
     private void SetupIKSolvers()

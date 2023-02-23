@@ -14,6 +14,8 @@ public class Pose : MonoBehaviour
     //[SerializeField] Vector3[] positions;
     [SerializeField] Queue<Vector3> positions = new Queue<Vector3>();
 
+
+
     private void Start()
     {
         //positions = new Vector3[positionsQueueBuffer];
