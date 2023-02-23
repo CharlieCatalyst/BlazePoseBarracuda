@@ -40,7 +40,7 @@ public class ScaleToJointDistance : MonoBehaviour
 
         //StartCoroutine(IScaleTransform());
     }
-    
+
     private void OnEnable()
     {
         StartCoroutine(IScaleTransform());
@@ -78,15 +78,16 @@ public class ScaleToJointDistance : MonoBehaviour
     private void ScaleTransform()
     {
         float distanceVariation = GetDistanceVariation();
-        
+
         if (distanceVariation < 0)
         {
             return;
         }
 
-        float scaleValue = originalScale * distanceVariation * scalar * (Camera.main.pixelWidth / poseEstimations.CameraResolution.x);
-        
-        transformToBeScaled.localScale = scaleValue * transformToBeScaled.localScale;
+        float scaleValue = originalScale * distanceVariation * scalar;
+        //float scaleValue = originalScale * distanceVariation * scalar * (Camera.main.pixelWidth / poseEstimations.CameraResolution.x);
+        if (scaleValue > 0)
+            transformToBeScaled.localScale = scaleValue * transformToBeScaled.localScale;
         //lastScale = transformToBeScaled.localScale.x;
         poseEstimations.CurrentScale = transformToBeScaled.localScale.x;
 
