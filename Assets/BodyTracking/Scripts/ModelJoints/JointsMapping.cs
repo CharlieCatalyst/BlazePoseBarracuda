@@ -73,10 +73,14 @@ public class JointsMapping : MonoBehaviour
         {
             SetWeights(poseManager.GetPose(PoseName.left_wrist), bipedIK.solver.leftHandEffector);
             SetWeights(poseManager.GetPose(PoseName.right_wrist), bipedIK.solver.rightHandEffector);
-            SetWeights(poseManager.GetPose(PoseName.left_elbow), bipedIK.solver.leftArmChain.bendConstraint);
-            SetWeights(poseManager.GetPose(PoseName.right_elbow), bipedIK.solver.rightArmChain.bendConstraint);
-            SetWeights(poseManager.GetPose(PoseName.left_shoulder), bipedIK.solver.leftShoulderEffector);
-            SetWeights(poseManager.GetPose(PoseName.right_shoulder), bipedIK.solver.rightShoulderEffector);
+            SetWeights(poseManager.GetPose(PoseName.left_wrist), bipedIK.solver.leftArmChain.bendConstraint);
+            SetWeights(poseManager.GetPose(PoseName.right_wrist), bipedIK.solver.rightArmChain.bendConstraint);
+            SetWeights(poseManager.GetPose(PoseName.left_wrist), bipedIK.solver.leftShoulderEffector);
+            SetWeights(poseManager.GetPose(PoseName.right_wrist), bipedIK.solver.rightShoulderEffector);
+            //SetWeights(poseManager.GetPose(PoseName.left_elbow), bipedIK.solver.leftArmChain.bendConstraint);
+            //SetWeights(poseManager.GetPose(PoseName.right_elbow), bipedIK.solver.rightArmChain.bendConstraint);
+            //SetWeights(poseManager.GetPose(PoseName.left_shoulder), bipedIK.solver.leftShoulderEffector);
+            //SetWeights(poseManager.GetPose(PoseName.right_shoulder), bipedIK.solver.rightShoulderEffector);
         }
 
     }

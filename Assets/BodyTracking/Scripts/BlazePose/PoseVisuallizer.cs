@@ -94,6 +94,8 @@ public class PoseVisuallizer : MonoBehaviour
         poseEstimations.UpdatePose(PoseName.neck, neck);
 
         Debug.LogFormat("{0}: {1}", "Nose", detecter.GetPoseLandmark(0));
+        Debug.LogFormat("{0}: {1}", "left_wrist", detecter.GetPoseLandmark(15));
+        Debug.LogFormat("{0}: {1}", "right_wrist", detecter.GetPoseLandmark(16));
         Debug.Log("---");
     }
 

@@ -298,4 +298,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sphere: {fileID: 2807743289811471937}
   label: {fileID: 8619222105944953398}
-  positionsQueueBuffer: 10
+  positionsQueueBuffer: 1

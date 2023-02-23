@@ -65,7 +65,7 @@ public class PoseManager : MonoBehaviour
                     Vector3 pos = new Vector3(
                        FormatPointWithResolution(poseEstimate.point).x,
                         Camera.main.pixelHeight - FormatPointWithResolution(poseEstimate.point).y
-                       , zOffset != null ? zOffset.offset : 1
+                       , zOffset != null ? zOffset.offset : 1f
                        );
                     
                     poseKV.Value.UpdatePosition(Camera.main.ScreenToWorldPoint(pos));
