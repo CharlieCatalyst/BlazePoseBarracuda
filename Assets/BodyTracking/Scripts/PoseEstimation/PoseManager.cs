@@ -57,13 +57,14 @@ public class PoseManager : MonoBehaviour
                 //if (poseEstimate.point.x > 0 && poseEstimate.point.y > 0)
                 if (poseEstimate.visibilityCoefficient > 0.8f)
                 {
-
-                    PoseZOffset zOffset = zOffsets.FirstOrDefault(zo => zo.poseName == poseKV.Key);
-                    poseKV.Value.UpdatePosition(Camera.main.ScreenToWorldPoint(new Vector3(
+                    Vector3 pos = new Vector3(
                        FormatPointWithResolution(poseEstimate.point).x,
                         Camera.main.pixelHeight - FormatPointWithResolution(poseEstimate.point).y
                        , 4
-                       )));
+                       );
+                    PoseZOffset zOffset = zOffsets.FirstOrDefault(zo => zo.poseName == poseKV.Key);
+                    poseKV.Value.UpdatePosition(Camera.main.ScreenToWorldPoint(pos));
+                    poseEstimate.position = pos;
                 }
 
                 else

@@ -110,6 +110,7 @@ public class PoseEstimations : ScriptableObject
 public class PoseEstimate
 {
     public Point point = new Point();
+    public Vector3 position;
     public float relativeDepth; //  Relative to the hips.
     public float visibilityCoefficient;
 }

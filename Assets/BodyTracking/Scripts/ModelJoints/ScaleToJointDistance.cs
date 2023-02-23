@@ -15,8 +15,8 @@ public class ScaleToJointDistance : MonoBehaviour
     [SerializeField] Transform transformToBeScaled;
 
     [Space]
-    [SerializeField] string poseFrom;
-    [SerializeField] string poseTo;
+    [SerializeField] PoseName poseFrom;
+    [SerializeField] PoseName poseTo;
 
     [Space]
     [SerializeField] Transform jointFrom;
