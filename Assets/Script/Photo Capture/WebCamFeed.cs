@@ -46,7 +46,7 @@ public class WebCamFeed : MonoBehaviour
 
     private void Start()
     {
-        if (cameraName != "")
+        if (cameraName != "" && DoesCameraExist(cameraName))
         {
             PlaySpecificCam(cameraName);
         }
@@ -80,7 +80,7 @@ public class WebCamFeed : MonoBehaviour
         webcamTexture = new WebCamTexture(WebCamTexture.devices[cameraIndex].name);
 
         rawImage.texture = webcamTexture;
-        rawImage.material.mainTexture = webcamTexture;
+        //rawImage.material.mainTexture = webcamTexture;
 
         webcamTexture.Play();
     }
@@ -92,4 +92,21 @@ public class WebCamFeed : MonoBehaviour
         webcamTexture.Stop();
         PlayWebCamOnImage(currentCameraIndex);
     }
+
+    private bool DoesCameraExist(string cameraName)
+    {
+        bool exists = false;
+        for (int i = 0; i < WebCamTexture.devices.Length; i++)
+        {
+            if (!exists)
+            if (WebCamTexture.devices[i].name == cameraName)
+            {
+                    exists = true;
+            }
+        }
+
+        return exists;
+    }
 }
+
+

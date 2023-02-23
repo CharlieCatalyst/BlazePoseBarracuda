@@ -460,7 +460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e9396a8e3c0d1d4799a3324318dc553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  webCamName: 
+  webCamName: Front Camera
   webCamResolution: {x: 1280, y: 720}
   staticInput: {fileID: 8400000, guid: a95e1a9df603f1d44ae75411b238c789, type: 2}
   rotate90Degree: 0
