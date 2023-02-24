@@ -15,6 +15,10 @@ public class WebCamFeed : MonoBehaviour
 
     public RawImage rawImage;
 
+    [Space]
+    [SerializeField] Vector2Int cameraResolution = new Vector2Int(1280, 720);
+    [SerializeField] int cameraFPS = 30;
+
     public Texture2D WebcamTexture2D
     {
         get
@@ -77,7 +81,7 @@ public class WebCamFeed : MonoBehaviour
     void PlayWebCamOnImage(int cameraIndex)
     {
 
-        webcamTexture = new WebCamTexture(WebCamTexture.devices[cameraIndex].name);
+        webcamTexture = new WebCamTexture(WebCamTexture.devices[cameraIndex].name, cameraResolution.x, cameraResolution.y, cameraFPS);
 
         rawImage.texture = webcamTexture;
         //rawImage.material.mainTexture = webcamTexture;
